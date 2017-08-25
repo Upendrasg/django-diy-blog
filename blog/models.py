@@ -40,7 +40,13 @@ class Blog(models.Model):
     
     class Meta:
         ordering = ["-post_date"]
-    
+
+    def contrived(self):
+        """
+        Function to mock.
+        """
+        pass
+
     def get_absolute_url(self):
         """
         Returns the url to access a particular blog instance.

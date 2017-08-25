@@ -4,6 +4,7 @@ from django.test import TestCase
 
 from django.contrib.auth.models import User #Blog author or commenter
 from blog.models import BlogAuthor, Blog, BlogComment
+from mock import call, patch # not necessary in python3
 
 class BlogAuthorModelTest(TestCase):
 
@@ -90,6 +91,10 @@ class BlogModelTest(TestCase):
         blog=Blog.objects.get(id=1)
         expected_object_name = blog.name
         self.assertEquals(expected_object_name,str(blog))
+
+    @patch('blog.models.Blog.contrived')
+    def test_contrived(self):
+        pass
 
 
 class BlogCommentModelTest(TestCase):
